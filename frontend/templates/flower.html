@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Flower</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+
+    <div id="flower-panel">
+        <img id="flower-sprite" src="" alt="flower">
+        <p id="flower-message"></p>
+    </div>
+
+    <script>
+        window.FLOWER_DATA = {
+            plantedAt: "{{ flower.planted_at|date:'c' }}",
+            color: "{{ flower.variation }}"
+        };
+    </script>
+
+    <script src="/static/js/lifecycle.js"></script>
+    <script>
+        updateFlowerView(window.FLOWER_DATA);
+    </script>
+
+</body>
+
+</html>

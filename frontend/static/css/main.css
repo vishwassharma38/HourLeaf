@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-family: sans-serif; /* Basic readability */
+}
+
+#flower-panel {
+    text-align: center; /* Fallback for older browsers, centers inline elements */
+    /* Flexbox on body/html handles primary centering */
+}
+
+#flower-sprite {
+    max-width: 100%; /* Ensure image scales down on smaller screens */
+    height: auto;
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center image itself if parent isn't flex */
+}
+
+#flower-message {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
