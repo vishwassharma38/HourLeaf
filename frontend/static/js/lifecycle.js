@@ -31,25 +31,27 @@ function canPlantAgain(age) {
   return age >= LIFECYCLE.FALLEN + SOIL_MERGE_TIME;
 }
 
-function updateFlowerView({ plantedAt, color }) {
+function getFlowerState(plantedAt) {
   const age = getFlowerAgeSeconds(plantedAt);
   const stage = getLifecycleStage(age);
-
-  const img = document.getElementById("flower-sprite");
-  const message = document.getElementById("flower-message");
-
-  img.src = `/static/sprites/${color}/${stage}.png`;
-
+  
+  // Calculate specific details for the renderer
+  let nextStageIn = 0;
+  let message = "";
+  
   if (stage === "fallen") {
     const remaining = LIFECYCLE.FALLEN + SOIL_MERGE_TIME - age;
-
     if (remaining > 0) {
-      const hours = Math.ceil(remaining / 3600);
-      message.innerText = `you can plant again in ${hours} hours`;
+       const hours = Math.ceil(remaining / 3600);
+       message = `you can plant again in ${hours} hours`;
     } else {
-      message.innerText = "you can plant again 🌱";
+       message = "you can plant again 🌱";
     }
-  } else {
-    message.innerText = "";
   }
+
+  return {
+    age,
+    stage,
+    message
+  };
 }

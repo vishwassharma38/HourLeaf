@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Your Flower</title>
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
@@ -9,10 +10,14 @@
 <body>
 
     <div id="flower-panel">
-        <img id="flower-sprite" src="" alt="flower">
+        <div id="flower-container">
+            <canvas id="flower-canvas"></canvas>
+        </div>
+
         <p id="flower-message"></p>
     </div>
 
+    <!-- Inject flower data from Django -->
     <script>
         window.FLOWER_DATA = {
             plantedAt: "{{ flower.planted_at|date:'c' }}",
@@ -20,10 +25,23 @@
         };
     </script>
 
+    <!-- Lifecycle / timing -->
     <script src="/static/js/lifecycle.js"></script>
-    <script>
-        updateFlowerView(window.FLOWER_DATA);
-    </script>
+
+    <!-- Math primitives -->
+    <script src="/static/js/vector.js"></script>
+
+    <!-- Environment systems -->
+    <script src="/static/js/wind.js"></script>
+
+    <!-- Simulation model -->
+    <script src="/static/js/flower_system.js"></script>
+
+    <!-- Renderer -->
+    <script src="/static/js/renderer.js"></script>
+
+    <!-- Orchestrator / bootstrap -->
+    <script src="/static/js/flower.js"></script>
 
 </body>
 

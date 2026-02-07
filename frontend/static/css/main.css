@@ -1,27 +1,60 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    font-family: sans-serif; /* Basic readability */
+/* Global reset + centering */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: #fff; /* warm neutral base */
 }
 
+/* Main panel holding everything */
 #flower-panel {
-    text-align: center; /* Fallback for older browsers, centers inline elements */
-    /* Flexbox on body/html handles primary centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  pointer-events: none; /* purely visual */
 }
 
-#flower-sprite {
-    max-width: 100%; /* Ensure image scales down on smaller screens */
-    height: auto;
-    display: block; /* Remove extra space below image */
-    margin: 0 auto; /* Center image itself if parent isn't flex */
+/* Container that holds the canvas */
+#flower-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  /* Explicit size for canvas to fill */
+  width: 300px;
+  height: 400px;
+  max-width: 100%;
 }
 
+/* The procedural canvas */
+#flower-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Lifecycle text */
 #flower-message {
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #333;
+  margin-top: 12px;
+
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #444;
+
+  opacity: 0.9;
 }
